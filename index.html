@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON to Table</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="for_header">
+    <h1>This is a website with products that you need to buy in 2023!</h1>
+</div>
+<div class="for_buttons">
+    <button class="filter" id="filter" onclick="toggleFilterOptions()">Filter</button>
+    <button class="sort" id="sort" onclick="toggleSortOptions()">Sort</button>
+    <button class="reset" id="reset" onclick="resetFilter()">Reset</button>
+</div>
+<div class="for_options">
+    <div class="filter-options" id="filter-options">
+        <div class="insideFilterOptions" id="insideFilterOptions">
+            <div class="forCategory" id="forCategory">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="all">All</option>
+                    <option value="smartphones">Smartphones</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="fragrances">Fragrances</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="home-decoration">Home decoration</option>
+                </select>
+            </div>
+            <div class="forPriceFilter" id="forPriceFilter">
+                <label for="priceRange">Price range: <span id="priceValue">0 - 2000</span></label>
+                <input type="range" id="priceRange" min="0" max="2000" value="2000" step="10">
+
+                <button onclick="applyFilters()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown">
+        <ul id="sort-options" class="sort-options">
+            <li onclick="sortData('id', 'asc')">Rosnąco po id</li>
+            <li onclick="sortData('id', 'desc')">Malejąco po id</li>
+            <li onclick="sortData('title', 'asc')">A -> Z po nazwie</li>
+            <li onclick="sortData('title', 'desc')">Z -> A po nazwie</li>
+            <li onclick="sortData('price', 'asc')">Rosnąco po cenie</li>
+            <li onclick="sortData('price', 'desc')">Malejąco po cenie</li>
+        </ul>
+    </div>
+</div>
+<div class="home">
+    <table id="data-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody id="data-body">
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
